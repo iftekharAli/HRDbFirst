@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3d6b16de50244e88adb3dc2b2976169d" Name="Diagram1">
+        <EntityTypeShape EntityType="HRModel.Emp_Attendances" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRModel.HR_EMP_BAK" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRModel.sysdiagram" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRModel.tbl_ConveyanceCost" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRModel.tbl_Dept_VU" Width="1.5" PointX="0.75" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRModel.tbl_Device_Log_AndoidApp" Width="1.5" PointX="10.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRModel.tbl_Device_Log_live" Width="1.5" PointX="7.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRModel.tbl_Employee_Attendance_Map" Width="1.5" PointX="9.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRModel.tbl_Employees" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRModel.tbl_EntertainmentCost" Width="1.5" PointX="11.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRModel.tbl_Leave_Applications" Width="1.5" PointX="5.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRModel.tbl_LeaveDefinition" Width="1.5" PointX="6" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRModel.tbl_LeaveStatistics_Employee" Width="1.5" PointX="8.25" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRModel.tbl_OTPLog" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRModel.tbl_Salary_info" Width="1.5" PointX="5.25" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRModel.tbl_SecurityLog" Width="1.5" PointX="12.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRModel.HR_Attendance_bak" Width="1.5" PointX="0.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRModel.tbl_1__" Width="1.5" PointX="13.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRModel.tbl_Attendance" Width="1.5" PointX="13.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRModel.tbl_Attendance_temp" Width="1.5" PointX="14.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRModel.tbl_Hrholiday" Width="1.5" PointX="14.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRModel.tbl_TimeRules" Width="1.5" PointX="7.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRModel.leav_0_save" Width="1.5" PointX="2.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRModel.View_1" Width="1.5" PointX="15.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRModel.View_2" Width="1.5" PointX="15.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRModel.View_3" Width="1.5" PointX="13.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRModel.View_4" Width="1.5" PointX="4.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRModel.View_5" Width="1.5" PointX="15.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRModel.View_6" Width="1.5" PointX="16.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRModel.View_6a" Width="1.5" PointX="16.75" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="HRModel.FK_DeptCode" ManuallyRouted="false" />
+        <AssociationConnector Association="HRModel.FK_DeptCode_Aplications" ManuallyRouted="false" />
+        <AssociationConnector Association="HRModel.FK_EmployeeCode" ManuallyRouted="false" />
+        <AssociationConnector Association="HRModel.FK_tbl_EmployeeCode_Applications" ManuallyRouted="false" />
+        <AssociationConnector Association="HRModel.FK_tbl_EmployeeCode_Salary" ManuallyRouted="false" />
+        <AssociationConnector Association="HRModel.FK_LeaveCode_Applications" ManuallyRouted="false" />
+        <AssociationConnector Association="HRModel.FK_LeaveCode" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,203 @@
+﻿@using System.Collections
+@model HRDbFirst.tbl_Leave_Applications
+
+@{
+    ViewBag.Title = "Create";
+}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
+<h2>Create</h2>
+
+
+@using (Html.BeginForm("Create", "Hrmanage", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>tbl_Leave_Applications</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+       
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.ApplicationId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+              
+                @Html.DropDownListFor(model => model.ApplicationId, new SelectList((IEnumerable)ViewData["LeaveApplication"], "Id", "Name"), "Select Leave", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ApplicationId, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+     
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LeaveCode, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.LeaveCode, new SelectList((IEnumerable)ViewData["LeaveApplication"], "Id", "Name"), "Select Leave", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.LeaveCode, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.DeptCode, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DeptCode, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DeptCode, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LeaveFrom, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                  @Html.EditorFor(model => model.LeaveFrom, new {  htmlAttributes = new { @class = "form-control"} })
+                @Html.ValidationMessageFor(model => model.LeaveFrom, "", new { @class = "text-danger" })
+                @*<div class="col-sm-10">
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="fa fa-calendar">
+                            </i>
+                        </div>
+                    </div>
+                </div>*@
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LeaveTill, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LeaveTill, new { htmlAttributes = new { @class = "form-control"} })
+                @Html.ValidationMessageFor(model => model.LeaveTill, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ApplicantComment, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ApplicantComment, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ApplicantComment, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SupportingDocZip, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBox("file", "", new { type = "file" }) <br />  
+                @Html.ValidationMessageFor(model => model.SupportingDocZip, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.InsuranceCalimPDF, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.InsuranceCalimPDF, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.InsuranceCalimPDF, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ResponsiblePersons, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ResponsiblePersons, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", @Value = "Kaymun Amin" } })
+                @Html.ValidationMessageFor(model => model.ResponsiblePersons, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.SupervisorApproval, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SupervisorApproval, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SupervisorApproval, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SupervisorComment, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SupervisorComment, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SupervisorComment, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DirectorApproval, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DirectorApproval, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DirectorApproval, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DirectorComment, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DirectorComment, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DirectorComment, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TimeStamp, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TimeStamp, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TimeStamp, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ModifyCount, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ModifyCount, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ModifyCount, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LastUpdate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LastUpdate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.LastUpdate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.isHalf, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.isHalf, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.isHalf, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+
+    @*<script>
+        $(document).ready(function(){
+            var date_input = $('input[name="LeaveTill"]'); //our date input has the name "date"
+            var date_input1 = $('input[name="LeaveFrom"]'); //our date input has the name "date"
+            var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+            date_input.datepicker({
+                format: 'mm/dd/yyyy',
+                container: container,
+                todayHighlight: true,
+                autoclose: true,
+            });
+            date_input1.datepicker({
+                format: 'mm/dd/yyyy',
+                container: container,
+                todayHighlight: true,
+                autoclose: true,
+            });
+        }) 
+    </script>*@
+}

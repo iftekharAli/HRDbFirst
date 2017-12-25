@@ -1,0 +1,141 @@
+﻿@model IEnumerable<HRDbFirst.spAppliedLeavesByDept_Result>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div ng-app="myApp" ng-controller="cntrl">
+    <table class="table table-bordered">
+        <tr>
+            <th>
+
+            </th>
+            <th>
+
+            </th>
+            <th>
+               FullName
+            </th>
+            <th>
+               DeptName
+            </th>
+
+            <th>
+                LeaveName
+            </th>
+
+            <th>
+                LeaveFrom
+            </th>
+            <th>
+                LeaveTill
+            </th>
+            <th>
+               ApplicantComment
+            </th>
+
+            <th></th>
+        </tr>
+        
+        <tr ng-repeat ="x in result">
+            <td>
+                @*<input type="checkbox" ng-model="x.ApplicationCode">*@
+                <input type="checkbox" ng-model="x.EmployeeCode">
+            </td>
+            <td>
+                {{x.ApplicationCode}}
+
+            </td>
+
+                <td>
+                  {{x.FullName}}
+                </td>
+                <td>
+                   {{x.DeptName}}
+                </td>
+
+                <td>
+                   {{x.LeaveName}}
+                </td>
+
+                <td>
+                   {{x.LeaveFrom}}
+                </td>
+                <td>
+                    {{x.LeaveTill}}
+                </td>
+                <td>
+                    {{x.ApplicantComment}}
+                </td>
+
+
+            </tr>
+        
+
+    </table>
+    <div class="container">
+        <div class="row">
+            @for (int i = 0; i < 10; i++)
+            {
+                <ul class="pagination">
+                    <li><a href="">@i</a></li>
+                </ul>
+            }
+          
+        </div>
+    </div>
+    <button type="submit" ng-click="sub(result)" class="btn btn-success">Submit</button>
+</div>
+
+@section scripts
+{
+    <script src="~/Scripts/JS/Fa.js"></script>
+    <script>
+        var app = angular.module('myApp', []);
+        app.factory('httpFactory', function ($http) {
+
+
+
+
+            return {
+
+                geturl: function (url, qs) {
+                    return $http.get(url,qs).then(function (response) {
+                        return (response.data);
+                    });
+                }
+
+      
+
+            };
+
+        });
+        app.controller('cntrl',
+            function ($scope,$http, httpFactory) {
+               httpFactory.geturl("../api/LeaveManage/List","").then(function (response) {
+                   $scope.result = response;
+                });
+                alert('hh');
+                $scope.sub =  function (choice) {
+                    var details = [];
+                   // console.log(choice);
+                    angular.forEach(choice, function (value, key) {
+                       
+                        if (value.EmployeeCode === true) {
+                            $http.post("../api/LeaveManage/Rr", choice).then(function (response) {
+                                return (response.data);
+                            });
+                            details.push(choice[key].ApplicationCode);
+                        }
+                    });
+                    console.log(details);
+                }
+
+            });
+    </script>
+}

@@ -1,0 +1,168 @@
+﻿@model IEnumerable<HRDbFirst.tbl_Leave_Applications>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@using (Html.BeginForm("Index", "Hrmanage",  FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <div class="control-label col-md-2">
+                    <label>From Date</label>
+                </div>
+           
+                <div class="col-md-10">
+                    @Html.TextBox("FromDate", null, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <div class="control-label col-md-2">
+                    <label>To Date</label>
+                </div>
+           
+                <div class="col-md-10">
+                    @Html.TextBox("ToDate", null, new { @class= "form-control"})
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <div class="control-label col-md-2">
+                    <input type="submit" class="btn btn-primary" value="Show"/>
+                </div>
+           
+          
+            </div>
+        </div>
+
+    </div>
+
+  
+}
+@if (Model != null)
+{
+    <table class="table table-bordered">
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.LeaveFrom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LeaveTill)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicantComment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SupportingDocZip)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.ResponsiblePersons)
+            </th>
+
+
+
+            <th>
+                @Html.DisplayNameFor(model => model.DirectorComment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimeStamp)
+            </th>
+
+
+            <th>
+                @Html.DisplayNameFor(model => model.tbl_LeaveDefinition.LeaveName)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.LeaveFrom)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.LeaveTill)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApplicantComment)
+                </td>
+                <td class="text-center">
+                    @if (item.SupportingDocZip == "")
+                    {
+                        <a href="#"><img src="http://wap.shabox.mobi/HRIS/Images/PDF-icon_grey.png" width="15%" /></a>
+                    }
+                    else
+                    {
+                        <a href="#"><img src="http://wap.shabox.mobi/HRIS/Images/PDF-icon.png" width="15%" /></a>
+                    }
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.ResponsiblePersons)
+                </td>
+
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.DirectorComment)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TimeStamp)
+                </td>
+
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.tbl_LeaveDefinition.LeaveName)
+                </td>
+                <td>
+
+                    @Html.ActionLink("Details", "Details", new { id = item.ApplicationCode }, new { @class = "btn btn-danger" })
+
+                </td>
+            </tr>
+        }
+
+    </table>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+
+    <script>
+            $(document).ready(function(){
+                var date_input = $('input[name="FromDate"]'); //our date input has the name "date"
+                var date_input1 = $('input[name="ToDate"]'); //our date input has the name "date"
+                var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+                date_input.datepicker({
+                    format: 'mm/dd/yyyy',
+                    container: container,
+                    todayHighlight: true,
+                    autoclose: true,
+                });
+                date_input1.datepicker({
+                    format: 'mm/dd/yyyy',
+                    container: container,
+                    todayHighlight: true,
+                    autoclose: true,
+                });
+            })
+        </script>
+}

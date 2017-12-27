@@ -1,34 +1,32 @@
 ﻿@model IEnumerable<HRDbFirst.spAppliedLeavesByDept_Result>
-
 @{
     ViewBag.Title = "Index";
 }
-
+<style>
+    .cc {
+        cursor: pointer
+    }
+</style>
 <h2>Index</h2>
-
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
 <div ng-app="myApp" ng-controller="cntrl">
     <table class="table table-bordered">
         <tr>
             <th>
-
-            </th>
-            <th>
-
-            </th>
-            <th>
-               FullName
-            </th>
-            <th>
-               DeptName
             </th>
 
+            <th>
+                FullName
+            </th>
+            <th>
+                DeptName
+            </th>
             <th>
                 LeaveName
             </th>
-
             <th>
                 LeaveFrom
             </th>
@@ -36,62 +34,58 @@
                 LeaveTill
             </th>
             <th>
-               ApplicantComment
+                ApplicantComment
             </th>
 
-            <th></th>
         </tr>
-        
-        <tr ng-repeat ="x in result">
+
+        <tr ng-repeat="x in result">
             <td>
                 @*<input type="checkbox" ng-model="x.ApplicationCode">*@
                 <input type="checkbox" ng-model="x.EmployeeCode">
             </td>
-            <td>
-                {{x.ApplicationCode}}
 
+            <td>
+                {{x.FullName}}
+            </td>
+            <td>
+                {{x.DeptName}}
+            </td>
+            <td>
+                {{x.LeaveName}}
+            </td>
+            <td>
+                {{x.LeaveFrom}}
+            </td>
+            <td>
+                {{x.LeaveTill}}
+            </td>
+            <td>
+                {{x.ApplicantComment}}
             </td>
 
-                <td>
-                  {{x.FullName}}
-                </td>
-                <td>
-                   {{x.DeptName}}
-                </td>
-
-                <td>
-                   {{x.LeaveName}}
-                </td>
-
-                <td>
-                   {{x.LeaveFrom}}
-                </td>
-                <td>
-                    {{x.LeaveTill}}
-                </td>
-                <td>
-                    {{x.ApplicantComment}}
-                </td>
-
-
-            </tr>
-        
+        </tr>
 
     </table>
     <div class="container">
-        <div class="row">
-            @for (int i = 0; i < 10; i++)
-            {
-                <ul class="pagination">
-                    <li><a href="">@i</a></li>
-                </ul>
-            }
-          
+        <div class="row text-center">
+
+            <ul class="pagination cc" ng-repeat="x in pageIndex">
+                <li><a ng-click="tt(x)">{{x}}</a></li>
+            </ul>
+
+
         </div>
     </div>
-    <button type="submit" ng-click="sub(result)" class="btn btn-success">Submit</button>
-</div>
+    <div class="container">
+        <div class="row text-center">
+            <button type="submit" ng-click="sub(result)" class="btn btn-success">Approve</button>
+            <button type="submit" ng-click="sub(result)" class="btn btn-danger">Reject</button>
+        </div>
+    </div>
+    <br />
 
+</div>
 @section scripts
 {
     <script src="~/Scripts/JS/Fa.js"></script>
@@ -105,33 +99,47 @@
             return {
 
                 geturl: function (url, qs) {
-                    return $http.get(url,qs).then(function (response) {
+                    return $http.get(url, qs).then(function (response) {
                         return (response.data);
                     });
                 }
 
-      
+
 
             };
 
         });
         app.controller('cntrl',
-            function ($scope,$http, httpFactory) {
-               httpFactory.geturl("../api/LeaveManage/List","").then(function (response) {
-                   $scope.result = response;
+            function ($scope, $http, httpFactory) {
+                httpFactory.geturl("../api/LeaveManage/List", "").then(function (response) {
+                    $scope.result = response;
                 });
-                alert('hh');
-                $scope.sub =  function (choice) {
+                httpFactory.geturl("../api/LeaveManage/ListTotalCount", "").then(function (response) {
+                    console.log(response);
+                    $scope.pageIndex = response;
+                });
+                $scope.tt = function (a) {
+                    httpFactory.geturl("../api/LeaveManage/List?id=" + a, "").then(function (response) {
+                        $scope.result = response;
+                    });
+                    httpFactory.geturl("../api/LeaveManage/ListTotalCount?id=" + a, "").then(function (response) {
+                        console.log(response);
+                        $scope.pageIndex = response;
+                    });
+                };
+                // alert('hh');
+                $scope.sub = function (choice) {
                     var details = [];
-                   // console.log(choice);
+                    // console.log(choice);
                     angular.forEach(choice, function (value, key) {
-                       
+
                         if (value.EmployeeCode === true) {
-                            $http.post("../api/LeaveManage/Rr", choice).then(function (response) {
-                                return (response.data);
-                            });
-                            details.push(choice[key].ApplicationCode);
+                            details.push(value);
+
                         }
+                    });
+                    $http.post("../api/LeaveManage/Rr", details).then(function (response) {
+                        return (response.data);
                     });
                     console.log(details);
                 }

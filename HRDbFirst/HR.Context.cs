@@ -18,7 +18,7 @@ namespace HRDbFirst
     public partial class HREntities : DbContext
     {
         public HREntities()
-            : base("name=HREntities")
+            : base("HREntities")
         {
         }
     
@@ -1431,5 +1431,7 @@ namespace HRDbFirst
         }
 
         public System.Data.Entity.DbSet<HRDbFirst.spAppliedLeavesByDept_Result> spAppliedLeavesByDept_Result { get; set; }
+
+        public System.Data.Entity.DbSet<HRDbFirst.spViewEmployees_Result> spViewEmployees_Result { get; set; }
     }
 }

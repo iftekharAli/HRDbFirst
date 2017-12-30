@@ -7,12 +7,15 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.ComponentModel.DataAnnotations;
+
 namespace HRDbFirst
 {
     using System;
     
     public partial class spViewEmployees_Result
     {
+        [Key]
         public string EmployeeCode { get; set; }
         public string UserCode { get; set; }
         public string EmployeeFirstName { get; set; }

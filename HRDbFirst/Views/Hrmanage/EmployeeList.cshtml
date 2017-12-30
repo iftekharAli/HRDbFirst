@@ -1,0 +1,242 @@
+﻿@model IEnumerable<HRDbFirst.spViewEmployees_Result>
+
+@{
+    ViewBag.Title = "EmployeeList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>EmployeeList</h2>
+<style>
+    .table th {
+        text-align:center;
+    }
+</style>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UserCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeFirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeLastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateOfBirth)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Designation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContactDetails)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmergencyContactDetails)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BloodGroup)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NationalID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NationalIDScanned)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AppointmentDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ResignationDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeptCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SupervisorCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telephone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AppointmentLetter)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Photo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeptName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SupervisorFirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SupervisorLastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isManager)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GrossSalary)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bonus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AttendanceID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SupervisorEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LeaveMailaddress1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LeaveMailaddress2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmergencyContactName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmergencyContactMobileNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmergencyContactRelation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmergencyContactNID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NocAndNda)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Etin)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeFirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeLastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateOfBirth)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Designation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContactDetails)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmergencyContactDetails)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BloodGroup)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NationalID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NationalIDScanned)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AppointmentDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ResignationDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeptCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SupervisorCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telephone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AppointmentLetter)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Photo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeptName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SupervisorFirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SupervisorLastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.isManager)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GrossSalary)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bonus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AttendanceID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SupervisorEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LeaveMailaddress1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LeaveMailaddress2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmergencyContactName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmergencyContactMobileNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmergencyContactRelation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmergencyContactNID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NocAndNda)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Etin)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.EmployeeCode }) |
+            @Html.ActionLink("Details", "Details", new { id=item.EmployeeCode }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.EmployeeCode })
+        </td>
+    </tr>
+}
+
+</table>

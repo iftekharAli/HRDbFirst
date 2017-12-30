@@ -514,6 +514,7 @@
     <Content Include="Views\Hrmanage\Create.cshtml" />
     <Content Include="Views\Hrmanage\Index.cshtml" />
     <Content Include="Views\Leave\Index.cshtml" />
+    <Content Include="Views\Hrmanage\EmployeeList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
